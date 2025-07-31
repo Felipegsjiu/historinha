@@ -1,3 +1,9 @@
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
+
 const perguntas = [
     {
         enunciado: "Jorge é um garoto anão que sofre bullying todos os dias na escola de Jerry, um garoto que usa cadeira de rodas. Um dia, Jorge vê Jerry caindo da rampa da escola e gritando por ajuda. O que Jorge deve fazer?",
@@ -26,6 +32,32 @@ const perguntas = [
         ]
     },
     {
+        enunciado: "Dias depois, Jerry pede desculpas para Jorge e tenta iniciar uma amizade. O que Jorge faz?",
+        alternativas: [
+            {
+                texto: "Aceita a amizade e tenta começar de novo.",
+                afirmacao: "Jorge e Jerry começam a se conhecer melhor e percebem que ambos enfrentam dificuldades únicas."
+            },
+            {
+                texto: "Recusa e diz que não pode confiar nele ainda.",
+                afirmacao: "Jorge mantém distância, mas continua refletindo sobre o pedido de desculpas."
+            }
+        ]
+    },
+    {
+        enunciado: "Dias depois, Jerry pede desculpas para Jorge e tenta iniciar uma amizade. O que Jorge faz?",
+        alternativas: [
+            {
+                texto: "Aceita a amizade e tenta começar de novo.",
+                afirmacao: "Jorge e Jerry começam a se conhecer melhor e percebem que ambos enfrentam dificuldades únicas."
+            },
+            {
+                texto: "Recusa e diz que não pode confiar nele ainda.",
+                afirmacao: "Jorge mantém distância, mas continua refletindo sobre o pedido de desculpas."
+            }
+        ]
+    },
+    {
         enunciado: "Na formatura, Jorge e Jerry são chamados para receber um prêmio de superação juntos. O que Jorge faz no palco?",
         alternativas: [
             {
@@ -35,7 +67,7 @@ const perguntas = [
             {
                 texto: "Pega o prêmio sozinho e ignora Jerry.",
                 afirmacao: "Jorge leva o prêmio, mas a falta de reconciliação deixa o momento amargo."
-            }
+            } 
         ]
     }
 ];
@@ -52,7 +84,6 @@ function mostraPergunta() {
     const perguntaAtual = perguntas[indice];
     const caixaPerguntas = document.querySelector(".caixa-perguntas");
     const caixaAlternativas = document.querySelector(".caixa-alternativas");
-
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
 
@@ -75,5 +106,11 @@ function mostraResultado() {
     document.querySelector(".caixa-alternativas").textContent = "";
     document.querySelector(".texto-resultado").textContent = historiaFinal;
 }
+
+function aleatorio (lista){
+    const posicao = Math.floor(Math.random()* lista.length);
+    return lista[posicao];
+}
+
 
 mostraPergunta();
